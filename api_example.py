@@ -10,9 +10,14 @@ import json
 import urllib
 import urllib2
 
-ZENOSS_INSTANCE = 'https://monitoring.coredial.com'
-ZENOSS_USERNAME = 'zenusername'
-ZENOSS_PASSWORD = 'zenpassword'
+#ZENOSS_INSTANCE = 'https://monitoring.coredial.com'
+#ZENOSS_USERNAME = 'zenusername'
+#ZENOSS_PASSWORD = 'zenpassword'
+p = open('params.cfg', 'r')
+ZENOSS_INSTANCE = p.readline().replace('\"','').replace('\n','').split("=",1)[1]
+ZENOSS_USERNAME = p.readline().replace('\"','').replace('\n','').split("=",1)[1]
+ZENOSS_PASSWORD = p.readline().replace('\"','').replace('\n','').split("=",1)[1]
+print ZENOSS_INSTANCE
 
 ROUTERS = { 'MessagingRouter': 'messaging',
             'EventsRouter': 'evconsole',
